@@ -51,7 +51,7 @@ Write the Python code to initialize the camera and implement the HOG algorithm.
 
 Run the code and verify that the system detects human presence and draws bounding boxes.
 
- ###  Python Code:
+###  Python Code:
  ```
 import cv2
 import imutils
