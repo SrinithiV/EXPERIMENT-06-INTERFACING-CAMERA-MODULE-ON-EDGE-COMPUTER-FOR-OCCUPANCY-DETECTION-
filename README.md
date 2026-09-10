@@ -43,7 +43,6 @@ Set up the edge device with a monitor or SSH/VNC connection.
 Connect and verify the camera using commands like ls /dev/video* or vcgencmd get_camera.
 
 Install required libraries:
-
 bash
 Copy
 Edit
@@ -53,9 +52,10 @@ Write the Python code to initialize the camera and implement the HOG algorithm.
 Run the code and verify that the system detects human presence and draws bounding boxes.
 
  ###  Python Code:
- 
+ ```
 import cv2
 import imutils
+```
 
 ###  Initialize HOG descriptor with people detector
 hog = cv2.HOGDescriptor()
@@ -69,26 +69,26 @@ while True:
     if not ret:
         break
 
- ### Resize frame for faster processing
+### Resize frame for faster processing
     frame = imutils.resize(frame, width=640)
 
- ### Detect people in the image
-    (rects, weights) = hog.detectMultiScale(frame, winStride=(4, 4),
-                                            padding=(8, 8), scale=1.05)
+### Detect people in the image
+    (rects, weights) = hog.detectMultiScale(frame, winStride=(4, 4),padding=(8, 8), scale=1.05)
 
- ### Draw bounding boxes
+### Draw bounding boxes
     for (x, y, w, h) in rects:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
- ### Display the result
+### Display the result
     cv2.imshow("Occupancy Detection", frame)
 
 ###  Exit on pressing 'q'
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
+```
 cap.release()
 cv2.destroyAllWindows()
+```
 
 ### SCREEN SHOTS OF OUTPUT 
 
