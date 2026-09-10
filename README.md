@@ -1,5 +1,7 @@
-# EXPERIMENT-07-INTERFACING-CAMERA-MODULE-ON-EDGE-COMPUTER-FOR-OCCUPANCY-DETECTION-
-
+# EXPERIMENT-06-INTERFACING-CAMERA-MODULE-ON-EDGE-COMPUTER-FOR-OCCUPANCY-DETECTION-
+## Name: SRINITHI V
+## Dept. : CSE(IoT)
+## REG NO: 212223115003
 
 ### AIM:
 To interface a USB/CSI camera module with an edge computing platform (e.g., Raspberry Pi, Jetson Nano, etc.) and implement an occupancy detection system using the Histogram of Oriented Gradients (HOG) algorithm.
@@ -67,10 +69,10 @@ while True:
     if not ret:
         break
 
-  ### Resize frame for faster processing
+ ### Resize frame for faster processing
     frame = imutils.resize(frame, width=640)
 
-  ### Detect people in the image
+ ### Detect people in the image
     (rects, weights) = hog.detectMultiScale(frame, winStride=(4, 4),
                                             padding=(8, 8), scale=1.05)
 
@@ -78,7 +80,7 @@ while True:
     for (x, y, w, h) in rects:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-  ### Display the result
+ ### Display the result
     cv2.imshow("Occupancy Detection", frame)
 
 ###  Exit on pressing 'q'
@@ -88,17 +90,13 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
-
 ### SCREEN SHOTS OF OUTPUT 
 
-
-
-
+<img width="1600" height="900" alt="WhatsApp Image 2026-08-28 at 4 25 34 PM" src="https://github.com/user-attachments/assets/0faaa42d-b5c0-4bed-8182-e7a834956657" />
 
 ### RASPI INTERFACE 
 
-
-
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/f273d00d-b4c0-438a-a706-d7d5ba8f6ca8" />
 
 ### Result:
 Occupancy detection using the HOG algorithm was successfully implemented. The system was able to identify and highlight human presence in real-time video streams.
